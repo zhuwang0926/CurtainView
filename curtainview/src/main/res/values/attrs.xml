@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CurtainView">
+        <!-- 窗帘最小范围 -->
+        <attr name="min" format="integer" />
+        <!-- 窗帘最大范围 -->
+        <attr name="max" format="integer" />
+        <!-- 窗帘当前进度 -->
+        <attr name="progress" format="integer" />
+        <!-- 最小进度为窗帘两边的距离,应该要大于thumb一半的宽度-->
+        <attr name="min_progress" format="float" />
+        <!-- 动画时长 -->
+        <attr name="duration" format="integer" />
+        <!-- 窗帘杆的颜色 -->
+        <attr name="curtain_rod_color" format="color" />
+        <!-- 窗帘杆的高度 -->
+        <attr name="curtain_rod_height" format="dimension" />
+        <!-- 窗帘叶子的颜色 -->
+        <attr name="curtain_leaves_color" format="color" />
+        <!-- 窗帘滑块 -->
+        <attr name="curtain_thumb" format="reference" />
+        <!-- 窗帘类型 单开帘还是双开帘 -->
+        <attr name="curtain_type" format="boolean" />
+    </declare-styleable>
+
+</resources>
