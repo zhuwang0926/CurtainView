@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <com.hnkj.curtainview.CurtainView
+            android:id="@+id/curtain"
+            android:layout_width="300dp"
+            android:layout_height="253dp"
+            android:layout_marginTop="20dp"
+            app:curtain_leaves_color="@color/curtain_leaves_color"
+            app:curtain_rod_color="@color/curtain_rod_color"
+            app:curtain_rod_height="40dp"
+            app:curtain_thumb="@drawable/img_curtain_drag"
+            app:curtain_type="true"
+            app:duration="2500"
+            app:max="100"
+            app:min="0"
+            app:min_progress="83"
+            app:progress="100" />
+
+        <com.hnkj.curtainview.CurtainView
+            android:layout_width="300dp"
+            android:layout_height="253dp"
+            android:layout_marginTop="20dp"
+            app:curtain_leaves_color="@color/purple_200"
+            app:curtain_rod_color="@color/teal_700"
+            app:curtain_rod_height="30dp"
+            app:curtain_thumb="@drawable/img_curtain_drag"
+            app:curtain_type="false"
+            app:duration="2500"
+            app:max="100"
+            app:min="0"
+            app:min_progress="83"
+            app:progress="50" />
+
+        <com.hnkj.curtainview.CurtainView
+            android:layout_width="300dp"
+            android:layout_height="253dp"
+            android:layout_marginTop="20dp"
+            app:curtain_leaves_color="@color/curtain_leaves_color"
+            app:curtain_rod_color="@color/curtain_rod_color"
+            app:curtain_rod_height="30dp"
+            app:curtain_thumb="@drawable/img_curtain_drag"
+            app:curtain_type="false"
+            app:duration="2500"
+            app:max="100"
+            app:min="0"
+            app:min_progress="83"
+            app:progress="50" />
+
+        <com.hnkj.curtainview.CurtainView
+            android:layout_width="300dp"
+            android:layout_height="253dp"
+            android:layout_marginTop="20dp"
+            app:curtain_leaves_color="@color/teal_200"
+            app:curtain_rod_color="@color/teal_700"
+            app:curtain_rod_height="20dp"
+            app:curtain_thumb="@drawable/img_curtain_drag"
+            app:curtain_type="false"
+            app:duration="2500"
+            app:max="100"
+            app:min="0"
+            app:min_progress="83"
+            app:progress="100" />
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

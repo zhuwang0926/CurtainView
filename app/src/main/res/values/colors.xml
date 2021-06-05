@@ -7,4 +7,6 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="curtain_leaves_color">#FF35C0E7</color>
+    <color name="curtain_rod_color">#FF2CADD1</color>
 </resources>

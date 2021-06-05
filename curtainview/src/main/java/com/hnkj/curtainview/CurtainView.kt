@@ -16,7 +16,7 @@ import kotlin.math.roundToInt
  * Email zhuwang999@foxmail.com
  */
 class CurtainView(context: Context, attributeSet: AttributeSet? = null) :
-    View(context, attributeSet) {
+        View(context, attributeSet) {
 
     private var mMin: Int = 0
     private var mMax: Int = 100
@@ -91,37 +91,37 @@ class CurtainView(context: Context, attributeSet: AttributeSet? = null) :
     init {
 
         val obtainStyledAttributes =
-            context.obtainStyledAttributes(attributeSet, R.styleable.CurtainView)
+                context.obtainStyledAttributes(attributeSet, R.styleable.CurtainView)
         setMin(obtainStyledAttributes.getInt(R.styleable.CurtainView_min, mMin))
         setMax(obtainStyledAttributes.getInt(R.styleable.CurtainView_max, mMax))
         setDurtain(obtainStyledAttributes.getInt(R.styleable.CurtainView_duration, mDuration))
         setProgress(obtainStyledAttributes.getInt(R.styleable.CurtainView_progress, mProgress))
         setMinProgress(
-            obtainStyledAttributes.getFloat(
-                R.styleable.CurtainView_min_progress,
-                minProgress
-            )
+                obtainStyledAttributes.getFloat(
+                        R.styleable.CurtainView_min_progress,
+                        minProgress
+                )
         )
         setProgressColor(
-            obtainStyledAttributes.getInt(
-                R.styleable.CurtainView_curtain_leaves_color,
-                mProgressColor
-            )
+                obtainStyledAttributes.getInt(
+                        R.styleable.CurtainView_curtain_leaves_color,
+                        mProgressColor
+                )
         )
         setRodColor(
-            obtainStyledAttributes.getInt(
-                R.styleable.CurtainView_curtain_rod_color,
-                mRodColor
-            )
+                obtainStyledAttributes.getInt(
+                        R.styleable.CurtainView_curtain_rod_color,
+                        mRodColor
+                )
         )
         setRodHeight(
-            obtainStyledAttributes.getDimension(
-                R.styleable.CurtainView_curtain_rod_height,
-                rodHeight
-            )
+                obtainStyledAttributes.getDimension(
+                        R.styleable.CurtainView_curtain_rod_height,
+                        rodHeight
+                )
         )
         setThumb(obtainStyledAttributes.getDrawable(R.styleable.CurtainView_curtain_thumb))
-        setDouble(obtainStyledAttributes.getBoolean(R.styleable.CurtainView_curtain_type,isDoubled))
+        setDouble(obtainStyledAttributes.getBoolean(R.styleable.CurtainView_curtain_type, isDoubled))
         obtainStyledAttributes.recycle()
         mPaint.strokeCap = Paint.Cap.ROUND
         mPaint.style = Paint.Style.FILL
@@ -154,15 +154,15 @@ class CurtainView(context: Context, attributeSet: AttributeSet? = null) :
             valueAnimator!!.cancel()
         }
         valueAnimator = ValueAnimator.ofInt(oldProgress, mProgress)
-            .apply {
-                addUpdateListener { animation: ValueAnimator ->
-                    mProgress = animation.animatedValue as Int
-                    if (mProgress in mMin..mMax) {
-                        computeProgressRect()
-                        invalidate()
+                .apply {
+                    addUpdateListener { animation: ValueAnimator ->
+                        mProgress = animation.animatedValue as Int
+                        if (mProgress in mMin..mMax) {
+                            computeProgressRect()
+                            invalidate()
+                        }
                     }
                 }
-            }
         valueAnimator!!.duration = mDuration.toLong()
         valueAnimator!!.start()
     }
@@ -193,40 +193,40 @@ class CurtainView(context: Context, attributeSet: AttributeSet? = null) :
         }
         leftRect?.let {
             it.set(
-                0F, rodHeight,
-                rectMargin, mHeight
+                    0F, rodHeight,
+                    rectMargin, mHeight
             )
             leftPath?.apply {
                 //每次设置路径前都需要先重置,否则不会生效
                 reset()
                 addRoundRect(
-                    it,
-                    floatArrayOf(0F, 0F, 0F, 0F, radius, radius, radius, radius),
-                    Path.Direction.CCW
+                        it,
+                        floatArrayOf(0F, 0F, 0F, 0F, radius, radius, radius, radius),
+                        Path.Direction.CCW
                 )
             }
         }
         if (isDoubled) {
             rectMargin =
-                mWidth - minProgress - (mWidth - minProgress - middleLine) / (mMax - mMin) * mProgress
+                    mWidth - minProgress - (mWidth - minProgress - middleLine) / (mMax - mMin) * mProgress
             if (rectMargin < middleLine) {
                 rectMargin = middleLine.toFloat()
             }
 
             rightRect?.let {
                 it.set(
-                    rectMargin,
-                    rodHeight,
-                    mWidth,
-                    mHeight
+                        rectMargin,
+                        rodHeight,
+                        mWidth,
+                        mHeight
                 )
                 rightPath?.apply {
                     //每次设置路径前都需要先重置,否则不会生效
                     reset()
                     addRoundRect(
-                        it,
-                        floatArrayOf(0F, 0F, 0F, 0F, radius, radius, radius, radius),
-                        Path.Direction.CCW
+                            it,
+                            floatArrayOf(0F, 0F, 0F, 0F, radius, radius, radius, radius),
+                            Path.Direction.CCW
                     )
                 }
             }
@@ -234,26 +234,26 @@ class CurtainView(context: Context, attributeSet: AttributeSet? = null) :
 
         if (isDoubled) {
             thumbRect?.set(
-                (leftRect!!.right - thumbHeightHalf).roundToInt(),
-                ((mHeight - rodHeight) / 2 - thumbHeightHalf + rodHeight).toInt(),
-                (leftRect!!.right + thumbHeightHalf).roundToInt(),
-                ((mHeight - rodHeight) / 2 + thumbHeightHalf + rodHeight).toInt()
+                    (leftRect!!.right - thumbHeightHalf).roundToInt(),
+                    ((mHeight - rodHeight) / 2 - thumbHeightHalf + rodHeight).toInt(),
+                    (leftRect!!.right + thumbHeightHalf).roundToInt(),
+                    ((mHeight - rodHeight) / 2 + thumbHeightHalf + rodHeight).toInt()
             )
         } else {
             //单开帘时需要判断滑块是否超出view的宽度
             thumbRect?.set(
-                if (leftRect!!.right > mWidth - thumbHeightHalf) {
-                    (leftRect!!.right - thumbHeightHalf * 2).roundToInt()
-                } else {
-                    (leftRect!!.right - thumbHeightHalf).roundToInt()
-                },
-                ((mHeight - rodHeight) / 2 - thumbHeightHalf + rodHeight).toInt(),
-                if (leftRect!!.right > mWidth - thumbHeightHalf) {
-                    (leftRect!!.right).roundToInt()
-                } else {
-                    (leftRect!!.right + thumbHeightHalf).roundToInt()
-                },
-                ((mHeight - rodHeight) / 2 + thumbHeightHalf + rodHeight).toInt()
+                    if (leftRect!!.right > mWidth - thumbHeightHalf) {
+                        (leftRect!!.right - thumbHeightHalf * 2).roundToInt()
+                    } else {
+                        (leftRect!!.right - thumbHeightHalf).roundToInt()
+                    },
+                    ((mHeight - rodHeight) / 2 - thumbHeightHalf + rodHeight).toInt(),
+                    if (leftRect!!.right > mWidth - thumbHeightHalf) {
+                        (leftRect!!.right).roundToInt()
+                    } else {
+                        (leftRect!!.right + thumbHeightHalf).roundToInt()
+                    },
+                    ((mHeight - rodHeight) / 2 + thumbHeightHalf + rodHeight).toInt()
             )
         }
 
@@ -301,12 +301,15 @@ class CurtainView(context: Context, attributeSet: AttributeSet? = null) :
                     } else {
                         ((x - minProgress) * (mMax - mMin) / (mWidth - minProgress)).toInt()
                     }
-                    if (null != mOnProgressChangeListener && ctrlProgress != mProgress) {
-                        mOnProgressChangeListener!!.onProgressChanged(this, ctrlProgress, true)
+                    if (ctrlProgress != mProgress) {
                         mProgress = ctrlProgress
                         computeProgressRect()
                         postInvalidate()
+                        if (null != mOnProgressChangeListener) {
+                            mOnProgressChangeListener!!.onProgressChanged(this, ctrlProgress, true)
+                        }
                     }
+
                 }
             }
         }
@@ -322,9 +325,9 @@ class CurtainView(context: Context, attributeSet: AttributeSet? = null) :
         thumbHeightHalf = mThumbDrawable!!.intrinsicHeight / 2
         //顺时针方向添加圆角
         rodPath.addRoundRect(
-            RectF(0F, 0F, mWidth, rodHeight),
-            floatArrayOf(radius, radius, radius, radius, 0F, 0F, 0F, 0F),
-            Path.Direction.CCW
+                RectF(0F, 0F, mWidth, rodHeight),
+                floatArrayOf(radius, radius, radius, radius, 0F, 0F, 0F, 0F),
+                Path.Direction.CCW
         )
         computeProgressRect()
     }
@@ -401,14 +404,14 @@ class CurtainView(context: Context, attributeSet: AttributeSet? = null) :
         rodHeight = height
     }
 
-    private fun setDouble(isDouble: Boolean){
+    private fun setDouble(isDouble: Boolean) {
         isDoubled = isDouble
     }
 
     /**
      * 设置是双开帘还是单开帘
      */
-    fun setCurtainType(isDouble: Boolean){
+    fun setCurtainType(isDouble: Boolean) {
         isDoubled = isDouble
         computeProgressRect()
         postInvalidate()
