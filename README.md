@@ -3,9 +3,7 @@
 - 这是一个Android 自定义控件所画的窗帘
 
 ## 截图
-
-<img src="D:\work\AndroidStudioProject\open source code\CurtainView\photo\curtainview_show.jpg" alt="curtainview_show" style="zoom:20%;" />
-
+<img src="photo/curtainview_show.jpg" alt="curtainview_show" width="216" height="384"/> 
 ## 使用
 
 1. 将JitPack存储库添加到您的构建文件
