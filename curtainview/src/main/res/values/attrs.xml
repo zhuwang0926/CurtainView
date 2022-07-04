@@ -17,10 +17,12 @@
         <attr name="curtain_rod_height" format="dimension" />
         <!-- 窗帘叶子的颜色 -->
         <attr name="curtain_leaves_color" format="color" />
+        <!-- 窗帘叶子使用图片 别和[curtain_leaves_color]一起使用-->
+        <attr name="curtain_leaves_left_drawable" format="reference|color" />
+        <attr name="curtain_leaves_right_drawable" format="reference|color" />
         <!-- 窗帘滑块 -->
         <attr name="curtain_thumb" format="reference" />
         <!-- 窗帘类型 单开帘还是双开帘 -->
         <attr name="curtain_type" format="boolean" />
     </declare-styleable>
-
 </resources>

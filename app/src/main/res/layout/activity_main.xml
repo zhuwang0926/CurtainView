@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="5dp">
 
         <com.hnkj.curtainview.CurtainView
             android:id="@+id/curtain"
@@ -48,26 +48,12 @@
             android:layout_width="300dp"
             android:layout_height="253dp"
             android:layout_marginTop="20dp"
-            app:curtain_leaves_color="@color/curtain_leaves_color"
-            app:curtain_rod_color="@color/curtain_rod_color"
-            app:curtain_rod_height="30dp"
+            android:background="@drawable/img_cl_bg"
+            app:curtain_leaves_left_drawable="@drawable/img_cl_leaf_left"
+            app:curtain_leaves_right_drawable="@drawable/img_cl_leaf_right"
+            app:curtain_rod_height="10dp"
             app:curtain_thumb="@drawable/img_curtain_drag"
-            app:curtain_type="false"
-            app:duration="2500"
-            app:max="100"
-            app:min="0"
-            app:min_progress="83"
-            app:progress="50" />
-
-        <com.hnkj.curtainview.CurtainView
-            android:layout_width="300dp"
-            android:layout_height="253dp"
-            android:layout_marginTop="20dp"
-            app:curtain_leaves_color="@color/teal_200"
-            app:curtain_rod_color="@color/teal_700"
-            app:curtain_rod_height="20dp"
-            app:curtain_thumb="@drawable/img_curtain_drag"
-            app:curtain_type="false"
+            app:curtain_type="true"
             app:duration="2500"
             app:max="100"
             app:min="0"
